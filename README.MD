@@ -1,47 +1,28 @@
-#**TRANSPARENT PROXY CONTRACT SYSTEM**
+#Account Abstraction
 
-##**What its about**
+Its a concept in solidity that allows a contract to act has a wallet without the need of a private key and it also guarantees a recovery method using any account of the users choice. Also the user can create this smart account with just a phone number and email or even a web3 wallet making it seamless and less cumbersome.
 
-The transparent proxy allows the admin using the contract(Proxy Admin) to perform special functions that are onlu restricted and accessible by the deployer of the contract.
-It also allows any other user apart from the admin to access functions from the implementation code using the delegate calls.
-This proxy differentiates the calls that can be made by the admin from that of the user.
+It differs from EOA model because there's no private key used to sign a transaction, you can recover your account when its lost, at times the gas fees are covers saving the users from paying any transaction cost and it also supports multi-signature.
 
-##**Components**
+**Bundler** : It gathers many user operations and bundles them as one, then transfers them to the entry point.
 
-###**Proxy Contract**
+**Entry Point**: It executes the user operations by making sure every thing is valid then carries on to perform the required actions.
 
-- It uses EIP 1967 storage slots to store the admin and implementation address in special slots to avoid storage collision.
-- Uses a modifier to check if the sender or user is the admin before accessing certain functions
-- There's delegate call that allows the user to interact with the implementation contract through the proxy address.
+**Paymaster**: This is a contract that covers the gas fees for the user.
 
-###**Proxy Admin Contract**
+**User operation**: Its a data structure that holds all the information of the transaction made by the user.
 
-- It holds the functions that only the admin can process or carry out
-- Restricts who can perform upgrades or change admin to the contract owner.
-- Provides read functions to inspect current implementation and admin addresses.
-- Enhances security by centralizing upgrade permissions.
+**Security Implications**
+- Users fund could be of risk if there's a bug in the system
+- Complex logic can be difficult to maintain, understand and worked upon.
 
-##**How it Works**
+**Mitigations**
+- Utilising well trusted libraries like OpenZeppelin
+- Introduce nonce in user operations to prevent repetition of operations.
 
-- Deploy the Logic Contract (e.g., nameRegistry & nameRegistry2).
-- Deploy the Proxy Contract.
-- Set the Logic Contract as Implementation:
- -Deploy ProxyAdmin with yourself as owner.
-- Use ProxyAdmin to upgrade implementations or change admin
-- Calls from non-admin addresses are forwarded to the logic contract.
-- Admin calls can upgrade or change admin safely.
+**How paymaster enables gasless transactions**
+It recieves the user operation and checks if its meant to cover the gas fees, if it supposed to do so, it signs the transaction for the user and pays the transaction cost for that operation.
 
-##**Advantages of Transparent Proxy Contract**
-
-- Clear Separation: Admin functions do not interfere with user calls, preventing function selector clashes.
-- Upgradeable: Logic can be upgraded without changing proxy address or losing storage.
-- Uses EIP-1967 slots to prevent storage collision.
-- Secure Admin Control: Centralized management via ProxyAdmin contract.
-
-## References
-
-- [Medium](https://solidity-by-example.org/app/upgradeable-proxy/)
-- [Youtube](https://www.youtube.com/watch?v=CLhPUrxwP7k)
-
-
+**Why it matters**
+It makes using web3 applications easier and user friendly without causing worry of how to get tokens to cover for gas fees. It also great for onboarding people new to web3 using Dapps intergrated with the paymaster.
 
