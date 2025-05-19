@@ -83,7 +83,26 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"execute(address,uint256,bytes)": {
+					"details": "Executes a transaction from this wallet",
+					"params": {
+						"data": "The function call data (used for calling other contract functions)",
+						"to": "The address where we want to send funds or interact with",
+						"value": "The amount of Ether to send"
+					}
+				},
+				"recoverSigner(bytes32,bytes)": {
+					"details": "Recovers the address that signed a message",
+					"params": {
+						"hash": "The message hash that was signed",
+						"sig": "The signature (should be 65 bytes long: r + s + v)"
+					},
+					"returns": {
+						"_0": "The address of the signer"
+					}
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
@@ -109,11 +128,11 @@
 	},
 	"sources": {
 		"smartWallet.sol": {
-			"keccak256": "0x3ca9b6f8873dcebaab2b24979db3bfc9e9fe522e53237115112b20811ca2acf3",
+			"keccak256": "0x7bca56205c5be48df1bf9cfbc97c54d5dec7d85d48c18a0ff6ff9be286e786f4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://424ccb84f4ebb75834d3946fe2f22170b1f42cd6d638a0c84fec1345ffacd1c1",
-				"dweb:/ipfs/QmW2Na2zWUGw2addwNx7WkSJ9bNo7QSSV23rZGpMKTP9gP"
+				"bzz-raw://35a0946c5f3084169f4baf5f809e41da3855c04b2a1755e006f5ad0f4def9990",
+				"dweb:/ipfs/Qmes8E8L6jXcYyDW4xmcRiKuCDRuCJJ1ijvxxKQZXxxyzc"
 			]
 		}
 	},

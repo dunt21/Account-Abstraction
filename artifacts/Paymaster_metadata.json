@@ -45,7 +45,15 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"sponsor(address,uint256)": {
+					"details": "Sponsor a user with a given amount (no actual transfer here, just a log)",
+					"params": {
+						"amt": "The amount sponsored",
+						"user": "The user being sponsored"
+					}
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
@@ -71,11 +79,11 @@
 	},
 	"sources": {
 		"smartWallet.sol": {
-			"keccak256": "0x3ca9b6f8873dcebaab2b24979db3bfc9e9fe522e53237115112b20811ca2acf3",
+			"keccak256": "0x7bca56205c5be48df1bf9cfbc97c54d5dec7d85d48c18a0ff6ff9be286e786f4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://424ccb84f4ebb75834d3946fe2f22170b1f42cd6d638a0c84fec1345ffacd1c1",
-				"dweb:/ipfs/QmW2Na2zWUGw2addwNx7WkSJ9bNo7QSSV23rZGpMKTP9gP"
+				"bzz-raw://35a0946c5f3084169f4baf5f809e41da3855c04b2a1755e006f5ad0f4def9990",
+				"dweb:/ipfs/Qmes8E8L6jXcYyDW4xmcRiKuCDRuCJJ1ijvxxKQZXxxyzc"
 			]
 		}
 	},
